@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.news.app.ui.article.ArticleViewModel" />
+
+        <variable
+            name="item"
+            type="com.news.model.Article" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:theme="@style/AppTheme.MaterialCard"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/colorLightGrey"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/ItemClickable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:onClick="@{()-> vm.clickArticle(item)}"
+                android:paddingVertical="8dp"
+                tools:background="@color/colorLightGrey">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image_article"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadImage="@{vm.formatImgUrl(item.multimedia)}"
+                    tools:background="@color/colorBlack" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{item.headline.main}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_article"
+                    tools:text="Ternyata Ini Sumber Sinyal Radio dari Galaksi Bima Sakti yang Muncul 2020 - Harian Jogja" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_snippet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{item.snippet}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/text_name"
+                    app:layout_constraintStart_toStartOf="@id/text_name"
+                    app:layout_constraintTop_toBottomOf="@id/text_name"
+                    tools:text="@string/default_long_text" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_instruction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{vm.formatTime(item.publishedAt)}"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/text_snippet"
+                    app:layout_constraintStart_toStartOf="@id/text_snippet"
+                    app:layout_constraintTop_toBottomOf="@id/text_snippet"
+                    tools:text="2020/02/15" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

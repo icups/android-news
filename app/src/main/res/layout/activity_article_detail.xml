@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.news.app.ui.article.ArticleViewModel.UiMode" />
+
+        <variable
+            name="vm"
+            type="com.news.app.ui.article.ArticleViewModel" />
+
+        <variable
+            name="item"
+            type="com.news.model.Article" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:theme="@style/AppTheme.Toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_article"
+            app:navigationIcon="@drawable/ic_baseline_chevron_left_white_24" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager_article_detail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:background="@color/colorLightGrey" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/tooltips_swipe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#33000000"
+            android:onClick="@{()-> vm.clickCloseTooltip()}"
+            android:visibility="@{vm.uiMode == UiMode.TOOLTIP ? View.VISIBLE : View.GONE, default=`gone`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="swipe.json"
+            app:lottie_loop="true"
+            tools:background="@color/colorPrimary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

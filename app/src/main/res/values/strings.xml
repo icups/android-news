@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NYTimes</string>
+    <string name="image_description">Image Description</string>
+    <string name="search">Search</string>
+    <string name="name">Name</string>
+    <string name="tap_here">Tap Here!</string>
+    <string name="get_random_meal">Get Random Meal!</string>
+    <string name="share">Share</string>
+    <string name="default_long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed mauris non dui vehicula sagittis ac quis quam. Pellentesque viverra augue nec viverra efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus elementum ornare. Sed commodo fringilla maximus. Integer quis ex sapien. Ut lacus mi, tempor eu gravida ut, viverra sit amet mi. Mauris semper a risus sed malesuada.\n\nMorbi ac erat eget velit malesuada vehicula et at odio. Cras quis tristique libero, sed ornare neque. Morbi lobortis facilisis orci a sagittis. Nullam eget enim sit amet enim convallis euismod ut nec est. Ut lobortis vel lorem id facilisis. Nulla iaculis lorem et tincidunt laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</string>
+    <string name="try_again">Try again</string>
+    <string name="oops_something_went_wrong">Oops something went wrong!</string>
+
+</resources>
